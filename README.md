@@ -32,78 +32,75 @@ The agent translates your query into SQL, executes it, and returns the results �
 
 ### 1️⃣ Clone the repository
 ```bash
-git clone https://github.com/yourusername/ai-student-record-assistant.git
-cd ai-student-record-assistant
-2️⃣ Install dependencies
-bash
-Copy
-Edit
-pip install -r requirements.txt
-3️⃣ Install & Set Up PostgreSQL
-Download from https://www.postgresql.org/download/
-
-During installation, set:
-
-Username: postgres (or your custom username)
-
-Password: remember this!
-
-Port: 5432
-
-Add PostgreSQL to PATH if not already.
-
-🗄️ Database Setup
-Create the database
-bash
-Copy
-Edit
-psql -U postgres
-CREATE DATABASE student_db;
-\c student_db
-Create the table
-sql
-Copy
-Edit
-CREATE TABLE students (
-    id SERIAL PRIMARY KEY,
-    name TEXT NOT NULL,
-    age INTEGER,
-    department TEXT,
-    gpa NUMERIC,
-    year TEXT
-);
-Insert sample data
-sql
-Copy
-Edit
-INSERT INTO students (name, age, department, gpa, year) VALUES
-('Amaar Khan', 20, 'CS', 3.9, 'Sophomore'),
-('Ali Raza', 22, 'SE', 3.6, 'Senior'),
-('Sara Imran', 19, 'IT', 2.9, 'Freshman');
-🔑 Environment Variables
-Create a .env file in the root folder:
-
-env
-Copy
-Edit
-GOOGLE_API_KEY=your_google_gemini_api_key
-DB_URI=postgresql+psycopg2://postgres:yourpassword@localhost:5432/student_db
-Get your Google API Key from:
-👉 https://makersuite.google.com/app/apikey
-
-▶️ Running the Project
-bash
-Copy
-Edit
-python main.py
-Example interaction:
-
-yaml
-Copy
-Edit
-Ask your DB: those students whose gpa is greater than 3.5
-Agent Answer:
-Amaar Khan, Ali Raza
+    git clone https://github.com/yourusername/ai-student-record-assistant.git
+    cd ai-student-record-assistant
+    2️⃣ Install dependencies
+    bash
+    Copy
+    Edit
+    pip install -r requirements.txt
+    3️⃣ Install & Set Up PostgreSQL
+    Download from https://www.postgresql.org/download/
+    
+    During installation, set:
+    
+    Username: postgres (or your custom username)
+    
+    Password: remember this!
+    
+    Port: 5432
+    
+    Add PostgreSQL to PATH if not already.
+    
+    🗄️ Database Setup
+    Create the database
+    bash
+    Copy
+    Edit
+    psql -U postgres
+    CREATE DATABASE student_db;
+    \c student_db
+    Create the table
+    sql
+    Copy
+    Edit
+    CREATE TABLE students (
+        id SERIAL PRIMARY KEY,
+        name TEXT NOT NULL,
+        age INTEGER,
+        department TEXT,
+        gpa NUMERIC,
+        year TEXT
+    );
+    Insert sample data
+    sql
+    Copy
+    Edit
+    INSERT INTO students (name, age, department, gpa, year) VALUES
+    ('Amaar Khan', 20, 'CS', 3.9, 'Sophomore'),
+    ('Ali Raza', 22, 'SE', 3.6, 'Senior'),
+    ('Sara Imran', 19, 'IT', 2.9, 'Freshman');
+    🔑 Environment Variables
+    Create a .env file in the root folder:
+    
+    env
+    
+    GOOGLE_API_KEY=your_google_gemini_api_key
+    DB_URI=postgresql+psycopg2://postgres:yourpassword@localhost:5432/student_db
+    Get your Google API Key from:
+    👉 https://makersuite.google.com/app/apikey
+    
+    ▶️ Running the Project
+    bash
+    Copy
+    Edit
+    python main.py
+    Example interaction:
+    
+    yaml
+    Ask your DB: those students whose gpa is greater than 3.5
+    Agent Answer:
+    Amaar Khan, Ali Raza
 📂 Project Structure
 bash
 Copy
